@@ -8,7 +8,9 @@
   "license": "MPL-2.0",
   "licensesUrl": "https://www.mozilla.org/en-US/MPL/2.0/",
   "dependencies": {
-    "com.meta.xr.sdk.interaction.ovr": "63.0.0"
+    "com.meta.xr.sdk.interaction.ovr": "63.0.0",
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.ugui": "1.0.0"
  },
  "keywords": [
     "vr",

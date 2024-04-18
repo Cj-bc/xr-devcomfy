@@ -1,0 +1,11 @@
+* VR Tools
+Collection of utility tools for VR development in Unity.
+It is highly inspired by Resonite.
+
+** Features I want
+
++ Able to transform (Scale, position, rotation) and record it somehow.
++ Able to inspect current status somehow.
++ Temporary enables grabbale on the fly.
++ Parent hints
+  + Draw sphere at parent's root position and also show arrow from there.

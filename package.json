@@ -1,0 +1,22 @@
+{
+  "name": "com.github.cj-bc.vrtools",
+  "version": "0.0.0",
+  "displayName": "VR Tools",
+  "description": "Set of utility tools to enhance VR development",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/Cj-bc/vrtools",
+  "license": "MPL-2.0",
+  "licensesUrl": "https://www.mozilla.org/en-US/MPL/2.0/",
+  "dependencies": {
+    "com.meta.xr.sdk.interaction.ovr": "63.0.0"
+ },
+ "keywords": [
+    "vr",
+    "utility"
+  ],
+  "author": {
+    "name": "Cj-bc",
+    "email": "cj.bc-sd@outlook.jp",
+    "url": "https://github.com/Cj-bc"
+  }
+}

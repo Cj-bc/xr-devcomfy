@@ -21,17 +21,22 @@ public class Inspector : MonoBehaviour
 
     public void Inspect(GameObject obj)
     {
-	nameField.SetText(obj.name);
-	positionField.SetText(obj.transform.localPosition.ToString());
-	rotationField.SetText(obj.transform.localRotation.ToString());
-	scaleField.SetText(obj.transform.localScale.ToString());
+	target = obj;
+	updateData();
+    }
+    private void updateData()
+    {
+	nameField.SetText(target.name);
+	positionField.SetText(target.transform.localPosition.ToString());
+	rotationField.SetText(target.transform.localRotation.ToString());
+	scaleField.SetText(target.transform.localScale.ToString());
     }
 
     void LateUpdate()
     {
-	if (target is GameObject obj)
+	if (target != null)
 	{
-	    Inspect(obj);
+	    updateData();
 	}
     }
 }

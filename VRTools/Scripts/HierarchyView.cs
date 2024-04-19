@@ -14,7 +14,6 @@ public class VRHierarchyView : MonoBehaviour
     private HierarchyItem itemPrefab;
 
     [SerializeField]
-    private GameObject root;
 
     /// White list of gameObjects to display.
     [SerializeField]

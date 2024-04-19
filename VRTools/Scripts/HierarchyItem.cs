@@ -17,6 +17,7 @@ public class HierarchyItem : MonoBehaviour
 
     [SerializeField]
     private GameObject target;
+    public GameObject Target { get => target; }
 
     void Start()
     {

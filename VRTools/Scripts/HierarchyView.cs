@@ -10,6 +10,10 @@ using UnityEngine.UI;
 /// <summary>Manage hierarchy view inside VR</summary>
 public class VRHierarchyView : UtilTool
 {
+    /// TEST:
+    [SerializeField]
+    private Inspector inspector;
+
     [SerializeField]
     private HierarchyItem itemPrefab;
 
@@ -26,6 +30,14 @@ public class VRHierarchyView : UtilTool
 	    itemComponent.Initialize(target);
 	}
 	LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
+
+	var lg = GetComponent<VerticalLayoutGroupWithSelection>();
+	lg.OnSelectionChanged += () => {
+	    if (lg.selectedItem is GameObject i && i.GetComponent<HierarchyItem>() is HierarchyItem item)
+	    {
+		inspector.Inspect(item.Target);
+	    }
+	};
     }
 
     public override void Show()

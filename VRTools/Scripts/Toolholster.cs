@@ -28,9 +28,3 @@ class Toolholster : MonoBehaviour
 	activeTool?.Close();
     }
 }
-
-public abstract class UtilTool : MonoBehaviour
-{
-    public abstract void Show();
-    public abstract void Close();
-}

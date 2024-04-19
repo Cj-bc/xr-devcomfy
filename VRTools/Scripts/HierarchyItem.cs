@@ -39,5 +39,4 @@ public class HierarchyItem : MonoBehaviour
     {
 	target.SetActive(newState);
     }
-
 }

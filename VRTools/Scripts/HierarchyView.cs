@@ -13,8 +13,6 @@ public class VRHierarchyView : UtilTool
     [SerializeField]
     private HierarchyItem itemPrefab;
 
-    [SerializeField]
-
     /// White list of gameObjects to display.
     [SerializeField]
     private List<GameObject> items;

@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>Manage hierarchy view inside VR</summary>
-public class VRHierarchyView : MonoBehaviour
+public class VRHierarchyView : UtilTool
 {
     [SerializeField]
     private HierarchyItem itemPrefab;
@@ -28,5 +28,15 @@ public class VRHierarchyView : MonoBehaviour
 	    itemComponent.Initialize(target);
 	}
 	LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
+    }
+
+    public override void Show()
+    {
+	gameObject.SetActive(true);
+    }
+
+    public override void Close()
+    {
+	gameObject.SetActive(false);
     }
 }

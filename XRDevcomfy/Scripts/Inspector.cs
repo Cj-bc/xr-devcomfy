@@ -6,6 +6,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 /// Manage Inspector view
@@ -15,6 +16,8 @@ public class Inspector : MonoBehaviour
     [SerializeField] private TMP_Text positionField;
     [SerializeField] private TMP_Text rotationField;
     [SerializeField] private TMP_Text scaleField;
+    [SerializeField] private RectTransform componentsRoot;
+    [SerializeField] private InspectorComponentFactory componentFactory;
 
     [SerializeField]
     private GameObject? target;
@@ -23,6 +26,12 @@ public class Inspector : MonoBehaviour
     {
 	target = obj;
 	updateData();
+	// foreach (var component in obj.GetComponents<Component>())
+	// {
+	//     var node = Instantiate(componentFactory).CreateComponent(component);
+	//     node.SetParent(componentsRoot, false);
+	// }
+	LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
     }
     private void updateData()
     {

@@ -26,11 +26,18 @@ public class Inspector : MonoBehaviour
     {
 	target = obj;
 	updateData();
-	// foreach (var component in obj.GetComponents<Component>())
-	// {
-	//     var node = Instantiate(componentFactory).CreateComponent(component);
-	//     node.SetParent(componentsRoot, false);
-	// }
+
+	// TODO: Reuse them by making pool or something.
+	for (int i = 0; i < componentsRoot.childCount; i++)
+	{
+	    DestroyImmediate(componentsRoot.GetChild(i).gameObject);
+	}
+
+	foreach (var component in obj.GetComponents<Component>())
+	{
+	    var node = Instantiate(componentFactory).CreateComponent(component);
+	    node.SetParent(componentsRoot, false);
+	}
 	LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
     }
     private void updateData()

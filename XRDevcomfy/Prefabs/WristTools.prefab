@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 6458762981280157855}
   - component: {fileID: 216656712855828759}
   - component: {fileID: 3424566180871457995}
+  - component: {fileID: 7503103326781282105}
   m_Layer: 5
   m_Name: WristTools
   m_TagString: Untagged
@@ -515,6 +516,32 @@ MonoBehaviour:
   oppornent: {fileID: 0}
   threshold: 0.4
   canvas: {fileID: 4162233028064728539}
+--- !u!114 &7503103326781282105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762547331275746501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &632636930715864766
 PrefabInstance:
   m_ObjectHideFlags: 0

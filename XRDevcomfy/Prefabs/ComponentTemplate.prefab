@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   propTemplate: {fileID: 1823306930650613997, guid: 2595d100ceea00f41bafe110fd30e442, type: 3}
   nameLabel: {fileID: 5969364923838904751}
+  fieldTemplate: {fileID: 5443701665941624984, guid: 76d0c3fe357ec274a9fa0cac720645f2, type: 3}
   propertiesRoot: {fileID: 4168463391886788747}
 --- !u!114 &4096463687201886248
 MonoBehaviour:

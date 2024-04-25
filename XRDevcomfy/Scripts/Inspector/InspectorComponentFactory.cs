@@ -12,6 +12,8 @@ using UnityEngine;
 public abstract class InspectorComponentFactory : MonoBehaviour
 {
     public PropertyTemplate propTemplate;
+    public FieldTemplate fieldTemplate;
+
     public Transform propertiesRoot;
 
     /// Creates Transform that represents given Component
@@ -19,7 +21,14 @@ public abstract class InspectorComponentFactory : MonoBehaviour
     {
 	var type = target.GetType();
 	SetName(type.Name);
-	foreach (var prop in type.GetProperties())
+	foreach (var prop in type.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+	{
+	    var instance = Instantiate(fieldTemplate);
+	    instance.Bind(prop, target);
+	    instance.transform.SetParent(propertiesRoot, false);
+	}
+
+	foreach (var prop in type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
 	{
 	    var instance = Instantiate(propTemplate);
 	    instance.Bind(prop, target);

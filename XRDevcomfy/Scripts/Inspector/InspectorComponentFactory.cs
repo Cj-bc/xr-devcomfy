@@ -22,7 +22,7 @@ public abstract class InspectorComponentFactory : MonoBehaviour
 	foreach (var prop in type.GetProperties())
 	{
 	    var instance = Instantiate(propTemplate);
-	    instance.Set(prop, target);
+	    instance.Bind(prop, target);
 	    instance.transform.SetParent(propertiesRoot, false);
 	}
 

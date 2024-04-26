@@ -30,7 +30,7 @@ public class Inspector : MonoBehaviour
 	// TODO: Reuse them by making pool or something.
 	for (int i = 0; i < componentsRoot.childCount; i++)
 	{
-	    DestroyImmediate(componentsRoot.GetChild(i).gameObject);
+	    Destroy(componentsRoot.GetChild(i).gameObject);
 	}
 
 	foreach (var component in obj.GetComponents<Component>())

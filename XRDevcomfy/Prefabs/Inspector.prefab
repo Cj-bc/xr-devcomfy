@@ -1346,6 +1346,10 @@ MonoBehaviour:
   componentsRoot: {fileID: 4716991119499041972}
   componentFactory: {fileID: 6303672882528930107, guid: ad3dc6046bba5574dabcab12422efb9e, type: 3}
   target: {fileID: 5614360023626799799}
+  ComponentsToInspect:
+  - {fileID: 8871206987539267954}
+  - {fileID: 1789986208517067996}
+  - {fileID: 0}
 --- !u!114 &1789986208517067996
 MonoBehaviour:
   m_ObjectHideFlags: 0

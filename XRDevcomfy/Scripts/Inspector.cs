@@ -4,7 +4,9 @@ License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/.
 **/
 using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -22,6 +24,14 @@ public class Inspector : MonoBehaviour
     [SerializeField]
     private GameObject? target;
 
+    public List<Component> ComponentsToInspect;
+    private List<Type> targetComponentTypes;
+
+    void Start()
+    {
+	targetComponentTypes = ComponentsToInspect.Select((c) => c.GetType()).ToList();
+    }
+
     public void Inspect(GameObject obj)
     {
 	target = obj;
@@ -33,9 +43,14 @@ public class Inspector : MonoBehaviour
 	    Destroy(componentsRoot.GetChild(i).gameObject);
 	}
 
-	foreach (var component in obj.GetComponents<Component>())
+	foreach (Type targetType in targetComponentTypes)
 	{
-	    var node = Instantiate(componentFactory).CreateComponent(component);
+	    var actualComponent = obj.GetComponent(targetType);
+	    if (actualComponent is null)
+	    {
+		continue;
+	    }
+	    var node = Instantiate(componentFactory).CreateComponent(actualComponent);
 	    node.SetParent(componentsRoot, false);
 	}
 	LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);

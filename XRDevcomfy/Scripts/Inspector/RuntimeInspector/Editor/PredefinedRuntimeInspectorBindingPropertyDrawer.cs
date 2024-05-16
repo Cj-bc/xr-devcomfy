@@ -52,7 +52,6 @@ namespace XRDevcomfy.RuntimeInspector
 	    var menu = new GenericMenu();
 	    var propName = property.FindPropertyRelative(kPropertyName);
 	    var targetComponent = property.FindPropertyRelative(kTargetProperty);
-	    string targetQualifiedName = property.FindPropertyRelative("TargetQualifiedName").stringValue;
 
 	    Type _type;
 	    foreach (var component in target.GetComponents<Component>())

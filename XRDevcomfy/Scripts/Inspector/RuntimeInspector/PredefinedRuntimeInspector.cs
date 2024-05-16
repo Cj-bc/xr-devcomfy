@@ -16,7 +16,6 @@ namespace XRDevcomfy.RuntimeInspector
 	public class TargetBinding
 	{
 	    public Component Target;
-	    public string TargetQualifiedName;
 	    public string PropertyName;
 
             public TargetBinding(Component _target, string _propertyName)

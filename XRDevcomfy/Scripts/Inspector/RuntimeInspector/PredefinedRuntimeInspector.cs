@@ -39,8 +39,6 @@ namespace XRDevcomfy.RuntimeInspector
 
 	void Start()
 	{
-            // debug
-            predefinedBindings = new List<TargetBinding>{new TargetBinding(transform, "position")};
 	    foreach (var bind in predefinedBindings)
 	    {
 		var instance = Instantiate(propertyTemplate);

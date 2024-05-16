@@ -51,6 +51,7 @@ namespace XRDevcomfy.RuntimeInspector
 	{
 	    var menu = new GenericMenu();
 	    var propName = property.FindPropertyRelative(kPropertyName);
+	    var targetComponent = property.FindPropertyRelative(kTargetProperty);
 	    string targetQualifiedName = property.FindPropertyRelative("TargetQualifiedName").stringValue;
 
 	    Type _type;
@@ -61,7 +62,7 @@ namespace XRDevcomfy.RuntimeInspector
 		foreach (PropertyInfo prop in _type.GetProperties())
 		{
 		    menu.AddItem(new GUIContent($"{component.name}/{prop.Name}"),
-				 prop.Name == propName.stringValue && _type.AssemblyQualifiedName == targetQualifiedName,
+				 prop.Name == propName.stringValue && component == targetComponent.objectReferenceValue,
 				 () =>
 				 {
 				     var b = new PredefinedRuntimeInspector.TargetBinding(component, prop.Name);

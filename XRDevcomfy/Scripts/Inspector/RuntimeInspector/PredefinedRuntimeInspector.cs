@@ -12,26 +12,7 @@ namespace XRDevcomfy.RuntimeInspector
     /// Runtime inspector with restricted/predefined set of properties
     public class PredefinedRuntimeInspector : MonoBehaviour
     {
-	[System.Serializable]
-	public class TargetBinding
-	{
-	    public Component Target;
-	    public string PropertyName;
-
-            public TargetBinding(Component _target, string _propertyName)
-            {
-                Target = _target;
-                PropertyName = _propertyName;
-            }
-
-            /// Returns appropreate PropertyInfo for given combination.
-            public PropertyInfo? PropertyInfo {
-                get => Target.GetType().GetProperty(PropertyName);
-                set => PropertyName = value.Name;
-            }
-	}
-	
-	public List<TargetBinding> predefinedBindings;
+	public List<ComponentPropertyReference> predefinedBindings;
 	public PropertyTemplate propertyTemplate;
 	/// Root Transform that contains all template instances
 	public Transform propertiesRoot;

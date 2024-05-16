@@ -61,7 +61,7 @@ namespace XRDevcomfy.RuntimeInspector
 		string qualifiedName = _type.AssemblyQualifiedName;
 		foreach (PropertyInfo prop in _type.GetProperties())
 		{
-		    menu.AddItem(new GUIContent($"{component.name}/{prop.Name}"),
+		    menu.AddItem(new GUIContent($"{_type}/{prop.Name}"),
 				 prop.Name == propName.stringValue && component == targetComponent.objectReferenceValue,
 				 () =>
 				 {

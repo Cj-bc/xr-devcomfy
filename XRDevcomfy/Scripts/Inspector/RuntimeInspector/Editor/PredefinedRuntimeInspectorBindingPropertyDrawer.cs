@@ -67,7 +67,6 @@ namespace XRDevcomfy.RuntimeInspector
 				     var b = new PredefinedRuntimeInspector.TargetBinding(component, prop.Name);
 				     // b.TargetQualifiedName = component.GetType().AssemblyQualifiedName;
 				     property.boxedValue = b;
-				     property.serializedObject.Update();
 				     property.serializedObject.ApplyModifiedProperties();
 				 });
 		}

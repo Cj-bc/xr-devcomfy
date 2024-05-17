@@ -21,6 +21,9 @@ public struct ComponentPropertyReference
         set => PropertyName = value.Name;
     }
 
-    public object? GetValue() => PropertyInfo.GetValue(Target);
-    public void SetValue(object val) => PropertyInfo.SetValue(Target, val);
+    public object? Value
+    {
+        get => PropertyInfo?.GetValue(Target);
+        set => PropertyInfo?.SetValue(Target, value);
+    }
 }

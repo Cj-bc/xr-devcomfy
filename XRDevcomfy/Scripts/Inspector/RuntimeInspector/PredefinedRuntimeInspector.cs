@@ -12,7 +12,7 @@ namespace XRDevcomfy.RuntimeInspector
     /// Runtime inspector with restricted/predefined set of properties
     public class PredefinedRuntimeInspector : MonoBehaviour
     {
-	public List<ComponentPropertyReference> predefinedBindings;
+	public List<PropertyReference> predefinedBindings;
 	public PropertyTemplate propertyTemplate;
 	/// Root Transform that contains all template instances
 	public Transform propertiesRoot;

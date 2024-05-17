@@ -4,12 +4,12 @@ using UnityEngine;
 
 /// <summary>An reference to some component's property.</summary>
 [System.Serializable]
-public struct ComponentPropertyReference
+public struct PropertyReference
 {
     public Component Target;
     public string PropertyName;
 
-    public ComponentPropertyReference(Component _target, string _propertyName)
+    public PropertyReference(Component _target, string _propertyName)
     {
         Target = _target;
         PropertyName = _propertyName;

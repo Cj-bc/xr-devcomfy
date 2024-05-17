@@ -13,8 +13,8 @@ using UnityEditorInternal;
 
 namespace XRDevcomfy.RuntimeInspector
 {
-    [CustomPropertyDrawer(typeof(ComponentPropertyReference))]
-    public class ComponentPropertyReferencePropertyDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(PropertyReference))]
+    public class PropertyReferencePropertyDrawer : PropertyDrawer
     {
 	private const string kTargetProperty = "Target";
 	private const string kPropertyName = "PropertyName";

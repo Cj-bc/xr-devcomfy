@@ -39,8 +39,12 @@ namespace XRDevcomfy.RuntimeInspector
 		}
 	    }
 	    
-	    if (EditorGUI.DropdownButton(functionRect, new GUIContent($"{targetComponent.GetType().Name}.{propName}"), FocusType.Passive, EditorStyles.popup))
-		BuildPopupList(targetComponent?.gameObject, property).DropDown(functionRect);
+	    if (targetComponent is Component comp)
+            {
+                var displayString = propName is null ? "" : $"{comp.GetType().Name}.{propName}";
+                if (EditorGUI.DropdownButton(functionRect, new GUIContent(displayString), FocusType.Passive, EditorStyles.popup))
+                    BuildPopupList(comp.gameObject, property).DropDown(functionRect);
+            }
 	    EditorGUI.EndProperty();
 	}
 

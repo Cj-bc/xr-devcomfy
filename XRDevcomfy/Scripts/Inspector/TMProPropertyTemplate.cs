@@ -16,7 +16,7 @@ public class TMProPropertyTemplate : PropertyTemplate
     public override void Bind(PropertyInfo info, object originalObj)
     {
 	base.Bind(info, originalObj);
-	propertyName.SetText(info.Name);
+	propertyName.SetText($"{originalObj.ToString()}.{info.Name}");
     }
 
     protected override bool SetValue(object newValue)

@@ -17,10 +17,13 @@ public class UguiVector3ValueStore : Vector3ValueStore
     {
 	x.onSelect.AddListener((_) => isValueModificationOnGoing = true);
 	x.onDeselect.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(v, old.y, old.z)));
+	x.onSubmit.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(v, old.y, old.z)));
 	y.onSelect.AddListener((_) => isValueModificationOnGoing = true);
 	y.onDeselect.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(old.x, v, old.z)));
+	y.onSubmit.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(old.x, v, old.z)));
 	z.onSelect.AddListener((_) => isValueModificationOnGoing = true);
 	z.onDeselect.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(old.x, old.y, v)));
+	z.onSubmit.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(old.x, old.y, v)));
     }
 
     void UpdateValue(string newValue, Func<float, Vector3, Vector3> converter)

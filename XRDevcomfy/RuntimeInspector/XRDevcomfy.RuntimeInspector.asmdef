@@ -1,9 +1,8 @@
 {
-    "name": "XR DevComfy",
+    "name": "XRDevcomfy.RuntimeInspector",
     "rootNamespace": "",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:9537b77d5f93d5243a2407041fcbccf1",
         "GUID:b42d5c2e704db9e46929e176a04465b7"
     ],
     "includePlatforms": [],

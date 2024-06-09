@@ -13,16 +13,16 @@ namespace XRDevcomfy.RuntimeInspector
     public class PredefinedRuntimeInspector : MonoBehaviour
     {
 	public List<PropertyReference> predefinedBindings;
-	public PropertyTemplate propertyTemplate;
 	/// Root Transform that contains all template instances
 	public Transform propertiesRoot;
+
+        public ValueStoreFactory factory;
 
 	void Start()
 	{
 	    foreach (var bind in predefinedBindings)
 	    {
-		var instance = Instantiate(propertyTemplate);
-		instance.Bind(bind.PropertyInfo, bind.Target);
+		var instance = factory.Create(bind.Target, bind.PropertyInfo.GetSetMethod(), bind.PropertyInfo.GetGetMethod());
 		instance.transform.SetParent(propertiesRoot, false);
 	    }
 	}

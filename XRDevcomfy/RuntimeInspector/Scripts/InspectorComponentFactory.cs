@@ -11,7 +11,7 @@ using UnityEngine;
 /// Component template
 public abstract class InspectorComponentFactory : MonoBehaviour
 {
-    public PropertyTemplate propTemplate;
+    public ValueStore propTemplate;
     public FieldTemplate fieldTemplate;
 
     public Transform propertiesRoot;

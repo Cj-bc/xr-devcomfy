@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: FactoryConfiguration
   m_EditorClassIdentifier: 
   vector3: {fileID: 5832222036221682258, guid: 31eb581681c43354ea64665b6787fdf5, type: 3}
+  quaternion: {fileID: 2536062522720464868, guid: aaf866259dae0df4abbc1dfd7d781eac, type: 3}
   anyType: {fileID: 7802426249440887960, guid: 746252ae11ce89741a4d3cacdb31f98d, type: 3}

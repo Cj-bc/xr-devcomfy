@@ -8,9 +8,9 @@ using TMPro;
 
 public class UguiVector3ValueStore : Vector3ValueStore
 {
-    [SerializeField] TMP_Text x;
-    [SerializeField] TMP_Text y;
-    [SerializeField] TMP_Text z;
+    [SerializeField] TMP_InputField x;
+    [SerializeField] TMP_InputField y;
+    [SerializeField] TMP_InputField z;
 
     protected override bool SetValue(object newValue)
     {

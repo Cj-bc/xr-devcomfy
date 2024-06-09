@@ -37,6 +37,15 @@ public abstract class ValueStore : MonoBehaviour
 	}
     }
 
+    /// <summary>Bind valueStore to given getter and setter</summary>
+    /// <param name="originalObj">Actual object to bind</param>
+    public virtual void Bind(MethodInfo setter, MethodInfo getter, object targetObj)
+    {
+        boundSetter = setter;
+        boundGetter = getter;
+	boundObject = targetObj;
+    }
+
     void LateUpdate()
     {
 	SetValue(boundGetter?.Invoke(boundObject, null));

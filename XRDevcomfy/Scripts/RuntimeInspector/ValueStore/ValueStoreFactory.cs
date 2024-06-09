@@ -2,7 +2,7 @@ using System.Reflection;
 using UnityEngine;
 
 /// <summar>Factory class for ValueStores</summar>
-public abstract class ValueStoreFactory
+public abstract class ValueStoreFactory : ScriptableObject
 {
     public abstract Transform CreateVector3(object targetObj, MethodInfo setter, MethodInfo getter);
     /// <summary>Create ValueStore for any type.</summary>

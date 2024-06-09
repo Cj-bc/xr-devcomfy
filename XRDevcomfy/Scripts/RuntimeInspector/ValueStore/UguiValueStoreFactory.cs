@@ -1,6 +1,7 @@
 using System.Reflection;
 using UnityEngine;
 
+[CreateAssetMenu(fileName="FactoryConfiguration", menuName="XRDevcomfy/UguiValueStoreFactory")]
 public class UguiValueStoreFactory : ValueStoreFactory
 {
     [SerializeField] UguiVector3ValueStore vector3;

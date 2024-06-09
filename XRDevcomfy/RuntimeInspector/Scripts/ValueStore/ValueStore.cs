@@ -19,6 +19,9 @@ public abstract class ValueStore : MonoBehaviour
     private System.Type valueType;
     private object boundObject;
 
+    /// <summary>True if value is currently edited by this;</summary>
+    protected bool isValueModificationOnGoing;
+
     /// <summary>Bind this template instance to given Property of originalObj</summary>
     /// <param name="info">Specifies which property to bind.</param>
     /// <param name="originalObj">Actual object to bind</param>
@@ -48,7 +51,10 @@ public abstract class ValueStore : MonoBehaviour
 
     void LateUpdate()
     {
-	SetValue(boundGetter?.Invoke(boundObject, null));
+	if (!isValueModificationOnGoing)
+	{
+	    SetValue(boundGetter?.Invoke(boundObject, null));
+	}
     }
 
     /// <summary>Set Property value to visual.</summary>

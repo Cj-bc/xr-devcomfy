@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TMProPropertyTemplate : PropertyTemplate
+public class TMProPropertyTemplate : ValueStore
 {
     [SerializeField] private TMP_Text propertyName;
     [SerializeField] private TMP_InputField valueField;

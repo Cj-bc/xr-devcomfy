@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>Controls template gameObejct that represents one property of type.</summary>
-public abstract class PropertyTemplate : MonoBehaviour
+public abstract class ValueStore : MonoBehaviour
 {
     /// <summary>Setter of property this instance is bound to. <c>Null</c> if it doesn't have public setter.</summary>
     private MethodInfo? boundSetter;

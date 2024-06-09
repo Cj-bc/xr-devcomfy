@@ -13,7 +13,7 @@ namespace XRDevcomfy.RuntimeInspector
     public class PredefinedRuntimeInspector : MonoBehaviour
     {
 	public List<PropertyReference> predefinedBindings;
-	public PropertyTemplate propertyTemplate;
+	public ValueStore propertyTemplate;
 	/// Root Transform that contains all template instances
 	public Transform propertiesRoot;
 

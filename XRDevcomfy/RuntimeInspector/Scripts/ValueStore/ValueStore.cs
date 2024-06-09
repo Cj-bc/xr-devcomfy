@@ -54,4 +54,29 @@ public abstract class ValueStore : MonoBehaviour
     /// <summary>Set Property value to visual.</summary>
     /// <param name="newValue">value to set.</param>
     protected abstract bool SetValue(object newValue);
+
+    /// Invokes bound setter
+    protected bool Setter(object val)
+    {
+	if (boundSetter is null || boundObject is null)
+	{
+	    return false;
+	}
+
+	var t = boundSetter.GetParameters();
+	if (val.GetType() == t[0].ParameterType)
+	{
+	    boundSetter.Invoke(boundObject, new []{val});
+	    return true;
+	}
+	else
+	{
+	    return false;
+	}
+    }
+
+    protected object Getter()
+    {
+	return boundGetter.Invoke(boundObject, new object[]{});
+    }
 }

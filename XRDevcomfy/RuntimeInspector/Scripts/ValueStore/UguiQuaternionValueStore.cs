@@ -11,15 +11,15 @@ public class UguiQuaternionValueStore : QuaternionValueStore
 {
     [Header("Euler Angles")]
     [SerializeField] RectTransform eulerRepresentation;
-    [SerializeField] TMP_Text eulerX;
-    [SerializeField] TMP_Text eulerY;
-    [SerializeField] TMP_Text eulerZ;
+    [SerializeField] TMP_InputField eulerX;
+    [SerializeField] TMP_InputField eulerY;
+    [SerializeField] TMP_InputField eulerZ;
     [Header("Quaternion Angles")]
     [SerializeField] RectTransform quaternionRepresentation;
-    [SerializeField] TMP_Text quaternionX;
-    [SerializeField] TMP_Text quaternionY;
-    [SerializeField] TMP_Text quaternionZ;
-    [SerializeField] TMP_Text quaternionW;
+    [SerializeField] TMP_InputField quaternionX;
+    [SerializeField] TMP_InputField quaternionY;
+    [SerializeField] TMP_InputField quaternionZ;
+    [SerializeField] TMP_InputField quaternionW;
     [SerializeField] Button toggleEuler;
     bool showingAsEuler = true;
 

@@ -71,7 +71,7 @@ public abstract class ValueStore<T> : MonoBehaviour
 	var t = boundSetter.GetParameters();
 	if (val.GetType() == t[0].ParameterType)
 	{
-	    boundSetter.Invoke(boundObject, new []{val});
+	    boundSetter.Invoke(boundObject, new []{(object)val});
 	    return true;
 	}
 	else
@@ -82,6 +82,12 @@ public abstract class ValueStore<T> : MonoBehaviour
 
     protected T Getter()
     {
-	return boundGetter.Invoke(boundObject, new object[]{});
+	var got = boundGetter.Invoke(boundObject, new object[]{});
+	if (got is T v)
+	{
+	    return v;
+	}
+	// TODO: what should I do when getter returns something else?
+	return default(T);
     }
 }

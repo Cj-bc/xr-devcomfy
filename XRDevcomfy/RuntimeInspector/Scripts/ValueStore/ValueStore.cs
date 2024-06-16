@@ -13,8 +13,8 @@ public abstract class ValueStore<T> : MonoBehaviour
 {
     /// <summary>Setter of property this instance is bound to. <c>Null</c> if it doesn't have public setter.</summary>
     private MethodInfo? boundSetter;
-    /// <summary>Getter of property this instance is bound to. <c>Null</c> if it doesn't have public getter.</summary>
-    private MethodInfo? boundGetter;
+    /// <summary>Getter of property this instance is bound to. getter should be provided because ValueStore have no meaning without knowing it's value</summary>
+    private MethodInfo boundGetter;
     private object boundObject;
 
     /// <summary>True if value is currently edited by this;</summary>
@@ -23,7 +23,7 @@ public abstract class ValueStore<T> : MonoBehaviour
     /// <summary>Bind this template instance to given Property of originalObj</summary>
     /// <param name="info">Specifies which property to bind.</param>
     /// <param name="originalObj">Actual object to bind</param>
-    public virtual void Bind(PropertyInfo info, object originalObj)
+    public virtual bool Bind(PropertyInfo info, object originalObj)
     {
 	boundObject = originalObj;
 	foreach (MethodInfo m in info.GetAccessors())
@@ -35,6 +35,8 @@ public abstract class ValueStore<T> : MonoBehaviour
 	    else
 		boundGetter = m;
 	}
+
+	return boundGetter is null;
     }
 
     /// <summary>Bind valueStore to given getter and setter</summary>

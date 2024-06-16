@@ -53,7 +53,7 @@ public abstract class ValueStore<T> : MonoBehaviour
     {
 	if (!isValueModificationOnGoing)
 	{
-	    SetValue(boundGetter?.Invoke(boundObject, null));
+	    SetValue(Getter());
 	}
     }
 

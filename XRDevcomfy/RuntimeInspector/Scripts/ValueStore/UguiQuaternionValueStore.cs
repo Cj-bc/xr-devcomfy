@@ -36,22 +36,14 @@ public class UguiQuaternionValueStore : QuaternionValueStore
 	quaternionRepresentation.gameObject.SetActive(!showingAsEuler);
     }
 
-    protected override bool SetValue(object newValue)
+    protected override void SetValue(Quaternion newValue)
     {
-	if (newValue is Quaternion v)
-	{
-            eulerX.text = v.eulerAngles.x.ToString();
-            eulerY.text = v.eulerAngles.y.ToString();
-            eulerZ.text = v.eulerAngles.z.ToString();
-            quaternionX.text = v.x.ToString();
-            quaternionY.text = v.y.ToString();
-            quaternionZ.text = v.z.ToString();
-            quaternionW.text = v.w.ToString();
-            return true;
-	}
-	else
-	{
-	    return false;
-	}
+	eulerX.text = newValue.eulerAngles.x.ToString();
+	eulerY.text = newValue.eulerAngles.y.ToString();
+	eulerZ.text = newValue.eulerAngles.z.ToString();
+	quaternionX.text = newValue.x.ToString();
+	quaternionY.text = newValue.y.ToString();
+	quaternionZ.text = newValue.z.ToString();
+	quaternionW.text = newValue.w.ToString();
     }
 }

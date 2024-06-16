@@ -36,18 +36,10 @@ public class UguiVector3ValueStore : Vector3ValueStore
 	}
     }
 
-    protected override bool SetValue(object newValue)
+    protected override void SetValue(Vector3 newValue)
     {
-        if (newValue is Vector3 v3)
-        {
-            x.text = v3.x.ToString();
-            y.text = v3.y.ToString();
-            z.text = v3.z.ToString();
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+	x.text = newValue.x.ToString();
+	y.text = newValue.y.ToString();
+	z.text = newValue.z.ToString();
     }
 }

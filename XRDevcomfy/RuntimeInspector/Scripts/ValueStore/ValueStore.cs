@@ -63,7 +63,7 @@ public abstract class ValueStore<T> : MonoBehaviour
 
     /// <summary>Set Property value to visual.</summary>
     /// <param name="newValue">value to set.</param>
-    protected abstract bool SetValue(T newValue);
+    protected abstract void SetValue(T newValue);
 
     /// Invokes bound setter
     protected bool Setter(T val)

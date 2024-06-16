@@ -2,28 +2,31 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-/// <summary>An reference to some component's property.</summary>
-[System.Serializable]
-public struct PropertyReference
+namespace XRDevcomfy.PropertyReference
 {
-    public Component Target;
-    public string PropertyName;
-
-    public PropertyReference(Component _target, string _propertyName)
+    /// <summary>An reference to some component's property.</summary>
+    [System.Serializable]
+    public struct PropertyReference
     {
-        Target = _target;
-        PropertyName = _propertyName;
-    }
+	public Component Target;
+	public string PropertyName;
 
-    /// Returns appropreate PropertyInfo for given combination.
-    public PropertyInfo? PropertyInfo {
-        get => Target.GetType().GetProperty(PropertyName);
-        set => PropertyName = value.Name;
-    }
+	public PropertyReference(Component _target, string _propertyName)
+	{
+	    Target = _target;
+	    PropertyName = _propertyName;
+	}
 
-    public object? Value
-    {
-        get => PropertyInfo?.GetValue(Target);
-        set => PropertyInfo?.SetValue(Target, value);
+	/// Returns appropreate PropertyInfo for given combination.
+	public PropertyInfo? PropertyInfo {
+	    get => Target.GetType().GetProperty(PropertyName);
+	    set => PropertyName = value.Name;
+	}
+
+	public object? Value
+	{
+	    get => PropertyInfo?.GetValue(Target);
+	    set => PropertyInfo?.SetValue(Target, value);
+	}
     }
 }

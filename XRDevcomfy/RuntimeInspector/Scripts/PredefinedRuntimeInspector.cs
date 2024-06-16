@@ -6,13 +6,14 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
+using XRDevcomfy.PropertyReference;
 
 namespace XRDevcomfy.RuntimeInspector
 {
     /// Runtime inspector with restricted/predefined set of properties
     public class PredefinedRuntimeInspector : MonoBehaviour
     {
-	public List<PropertyReference> predefinedBindings;
+	public List<PropertyReference.PropertyReference> predefinedBindings;
 	/// Root Transform that contains all template instances
 	public Transform propertiesRoot;
 

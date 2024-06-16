@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
 
-namespace XRDevcomfy.RuntimeInspector
+namespace XRDevcomfy.PropertyReference
 {
     [CustomPropertyDrawer(typeof(PropertyReference))]
     public class PropertyReferencePropertyDrawer : PropertyDrawer

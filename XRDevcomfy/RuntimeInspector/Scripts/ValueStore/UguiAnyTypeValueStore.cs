@@ -10,6 +10,7 @@ public class UguiAnyTypeValueStore : AnyTypeValueStore
 {
     [SerializeField] private TMP_InputField valueField;
 
+    protected override void SetupValueModificationListeners() {}
     protected override void SetValue(object newValue)
     {
 	valueField.text = newValue?.ToString() ?? "_INVALID VALUE_";

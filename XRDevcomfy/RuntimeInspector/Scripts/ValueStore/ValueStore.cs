@@ -53,6 +53,11 @@ public abstract class ValueStore<T> : MonoBehaviour
 	boundObject = targetObj;
     }
 
+    void OnEnable()
+    {
+	SetupValueModificationListeners();
+    }
+
     void LateUpdate()
     {
 	if (!isValueModificationOnGoing)
@@ -64,6 +69,9 @@ public abstract class ValueStore<T> : MonoBehaviour
     /// <summary>Set Property value to visual.</summary>
     /// <param name="newValue">value to set.</param>
     protected abstract void SetValue(T newValue);
+
+    /// <summary>Do necessary setups to receive value modification from UI.</summary>
+    protected abstract void SetupValueModificationListeners();
 
     /// Invokes bound setter
     protected bool Setter(T val)

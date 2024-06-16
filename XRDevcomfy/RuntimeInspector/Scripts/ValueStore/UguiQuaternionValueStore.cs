@@ -36,6 +36,10 @@ public class UguiQuaternionValueStore : QuaternionValueStore
 	quaternionRepresentation.gameObject.SetActive(!showingAsEuler);
     }
 
+    protected override void SetupValueModificationListeners()
+    {
+    }
+
     protected override void SetValue(Quaternion newValue)
     {
 	eulerX.text = newValue.eulerAngles.x.ToString();

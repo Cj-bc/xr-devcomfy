@@ -13,7 +13,7 @@ public class UguiVector3ValueStore : Vector3ValueStore
     [SerializeField] TMP_InputField y;
     [SerializeField] TMP_InputField z;
 
-    void OnEnable()
+    protected override void SetupValueModificationListeners()
     {
 	x.onSelect.AddListener((_) => isValueModificationOnGoing = true);
 	x.onDeselect.AddListener((s) => UpdateValue(s, (v, old) => new Vector3(v, old.y, old.z)));

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>Controls template gameObejct that represents one property of type.</summary>
-public abstract class ValueStore : MonoBehaviour
+public abstract class ValueStore<T> : MonoBehaviour
 {
     /// <summary>Setter of property this instance is bound to. <c>Null</c> if it doesn't have public setter.</summary>
     private MethodInfo? boundSetter;
@@ -59,10 +59,10 @@ public abstract class ValueStore : MonoBehaviour
 
     /// <summary>Set Property value to visual.</summary>
     /// <param name="newValue">value to set.</param>
-    protected abstract bool SetValue(object newValue);
+    protected abstract bool SetValue(T newValue);
 
     /// Invokes bound setter
-    protected bool Setter(object val)
+    protected bool Setter(T val)
     {
 	if (boundSetter is null || boundObject is null)
 	{
@@ -81,7 +81,7 @@ public abstract class ValueStore : MonoBehaviour
 	}
     }
 
-    protected object Getter()
+    protected T Getter()
     {
 	return boundGetter.Invoke(boundObject, new object[]{});
     }

@@ -25,6 +25,11 @@ public abstract class ValueStore<T> : MonoBehaviour
     /// <param name="originalObj">Actual object to bind</param>
     public virtual bool Bind(PropertyInfo info, object originalObj)
     {
+	if (info.PropertyType != typeof(T))
+	{
+	    return false;
+	}
+
 	boundObject = originalObj;
 	foreach (MethodInfo m in info.GetAccessors())
 	{

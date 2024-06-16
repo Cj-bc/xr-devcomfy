@@ -15,8 +15,6 @@ public abstract class ValueStore<T> : MonoBehaviour
     private MethodInfo? boundSetter;
     /// <summary>Getter of property this instance is bound to. <c>Null</c> if it doesn't have public getter.</summary>
     private MethodInfo? boundGetter;
-    /// <summary>Type of property this instance is bound to.</summary>
-    private System.Type valueType;
     private object boundObject;
 
     /// <summary>True if value is currently edited by this;</summary>
@@ -28,7 +26,6 @@ public abstract class ValueStore<T> : MonoBehaviour
     public virtual void Bind(PropertyInfo info, object originalObj)
     {
 	boundObject = originalObj;
-	valueType = info.PropertyType;
 	foreach (MethodInfo m in info.GetAccessors())
 	{
 	    // Determine if it is getter or setter.

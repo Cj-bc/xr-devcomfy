@@ -11,8 +11,8 @@ using UnityEngine;
 /// Component template
 public abstract class InspectorComponentFactory : MonoBehaviour
 {
-    public ValueStore propTemplate;
     public FieldTemplate fieldTemplate;
+    public ValueStoreFactory valueStoreFactory;
 
     public Transform propertiesRoot;
 
@@ -30,9 +30,11 @@ public abstract class InspectorComponentFactory : MonoBehaviour
 
 	foreach (var prop in type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
 	{
-	    var instance = Instantiate(propTemplate);
-	    instance.Bind(prop, target);
-	    instance.transform.SetParent(propertiesRoot, false);
+	    if (prop.GetGetMethod() is MethodInfo getter && prop.GetSetMethod() is MethodInfo setter)
+	    {
+		Transform instance = valueStoreFactory.Create(target, setter, getter);
+		instance.transform.SetParent(propertiesRoot, false);
+	    }
 	}
 
 	return this.transform;

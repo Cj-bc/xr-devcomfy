@@ -6,7 +6,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 using UnityEngine;
 using TMPro;
 
-public class UguiAnyTypeValueStore : AnyTypeValueStore
+public class UguiAnyTypePropertyStore : AnyTypePropertyStore
 {
     [SerializeField] private TMP_InputField valueField;
 

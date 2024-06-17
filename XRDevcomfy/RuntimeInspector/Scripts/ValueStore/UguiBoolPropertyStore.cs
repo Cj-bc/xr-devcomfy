@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UguiBoolValueStore : BoolValueStore
+public class UguiBoolPropertyStore : BoolPropertyStore
 {
     [SerializeField] Toggle toggle;
 

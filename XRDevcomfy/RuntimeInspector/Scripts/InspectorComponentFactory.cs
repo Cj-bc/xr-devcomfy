@@ -12,7 +12,7 @@ using UnityEngine;
 public abstract class InspectorComponentFactory : MonoBehaviour
 {
     public FieldTemplate fieldTemplate;
-    public ValueStoreFactory valueStoreFactory;
+    public MemberStoreFactory memberStoreFactory;
 
     public Transform propertiesRoot;
 
@@ -32,7 +32,7 @@ public abstract class InspectorComponentFactory : MonoBehaviour
 	{
 	    if (prop.GetGetMethod() is MethodInfo getter && prop.GetSetMethod() is MethodInfo setter)
 	    {
-		Transform instance = valueStoreFactory.Create(target, setter, getter);
+		Transform instance = memberStoreFactory.Create(target, setter, getter);
 		instance.transform.SetParent(propertiesRoot, false);
 	    }
 	}

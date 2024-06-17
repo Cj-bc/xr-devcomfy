@@ -5,6 +5,6 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 **/
 using UnityEngine;
 
-public abstract class QuaternionValueStore : PropertyStore<Quaternion>
+public abstract class QuaternionPropertyStore : PropertyStore<Quaternion>
 {
 }

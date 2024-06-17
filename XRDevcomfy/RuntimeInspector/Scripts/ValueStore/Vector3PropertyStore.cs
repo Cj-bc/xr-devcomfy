@@ -5,6 +5,6 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 **/
 using UnityEngine;
 
-public abstract class Vector3ValueStore : PropertyStore<Vector3>
+public abstract class Vector3PropertyStore : PropertyStore<Vector3>
 {
 }

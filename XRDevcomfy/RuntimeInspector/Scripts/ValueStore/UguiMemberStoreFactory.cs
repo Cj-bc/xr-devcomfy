@@ -6,13 +6,13 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 using System.Reflection;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="FactoryConfiguration", menuName="XRDevcomfy/UguiValueStoreFactory")]
-public class UguiValueStoreFactory : ValueStoreFactory
+[CreateAssetMenu(fileName="FactoryConfiguration", menuName="XRDevcomfy/UguiMemberStoreFactory")]
+public class UguiMemberStoreFactory : MemberStoreFactory
 {
-    [SerializeField] UguiVector3ValueStore vector3;
-    [SerializeField] UguiQuaternionValueStore quaternion;
-    [SerializeField] UguiBoolValueStore boolean;
-    [SerializeField] UguiAnyTypeValueStore anyType;
+    [SerializeField] UguiVector3PropertyStore vector3;
+    [SerializeField] UguiQuaternionPropertyStore quaternion;
+    [SerializeField] UguiBoolPropertyStore boolean;
+    [SerializeField] UguiAnyTypePropertyStore anyType;
 
     public override Transform CreateVector3(object targetObj, MethodInfo setter, MethodInfo getter)
     {

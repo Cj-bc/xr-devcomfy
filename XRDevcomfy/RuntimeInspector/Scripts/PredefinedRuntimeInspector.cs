@@ -17,7 +17,7 @@ namespace XRDevcomfy.RuntimeInspector
 	/// Root Transform that contains all template instances
 	public Transform propertiesRoot;
 
-        public ValueStoreFactory factory;
+        public MemberStoreFactory factory;
 
 	void Start()
 	{

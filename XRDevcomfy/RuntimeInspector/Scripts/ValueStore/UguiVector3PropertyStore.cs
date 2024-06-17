@@ -7,7 +7,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class UguiVector3ValueStore : Vector3ValueStore
+public class UguiVector3PropertyStore : Vector3PropertyStore
 {
     [SerializeField] TMP_InputField x;
     [SerializeField] TMP_InputField y;

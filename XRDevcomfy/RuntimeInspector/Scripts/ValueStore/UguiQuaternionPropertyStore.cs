@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UguiQuaternionValueStore : QuaternionValueStore
+public class UguiQuaternionPropertyStore : QuaternionPropertyStore
 {
     [Header("Euler Angles")]
     [SerializeField] RectTransform eulerRepresentation;

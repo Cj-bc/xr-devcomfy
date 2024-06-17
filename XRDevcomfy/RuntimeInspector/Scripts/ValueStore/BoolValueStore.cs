@@ -1,4 +1,4 @@
 
-public abstract class BoolValueStore : ValueStore<bool>
+public abstract class BoolValueStore : PropertyStore<bool>
 {
 }

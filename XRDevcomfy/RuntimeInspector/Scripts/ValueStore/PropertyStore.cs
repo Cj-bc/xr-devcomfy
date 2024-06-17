@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>Controls template gameObejct that represents one property of type.</summary>
-public abstract class ValueStore<T> : MemberStore
+public abstract class PropertyStore<T> : MemberStore
 {
     /// <summary>Setter of property this instance is bound to. <c>Null</c> if it doesn't have public setter.</summary>
     private MethodInfo? boundSetter;
@@ -55,7 +55,7 @@ public abstract class ValueStore<T> : MemberStore
 
     public override bool Bind(object obj, MemberInfo memberInfo) => memberInfo switch
     {
-	Propertyinfo prop => Bind(prop, obj),
+	PropertyInfo prop => Bind(prop, obj),
 	_ => false
     };
 

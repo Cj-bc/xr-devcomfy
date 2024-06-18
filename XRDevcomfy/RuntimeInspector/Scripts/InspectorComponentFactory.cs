@@ -32,7 +32,7 @@ public abstract class InspectorComponentFactory : MonoBehaviour
 	{
 	    if (prop.GetGetMethod() is MethodInfo getter && prop.GetSetMethod() is MethodInfo setter)
 	    {
-		Transform instance = memberStoreFactory.Create(target, setter, getter);
+		Transform instance = memberStoreFactory.Create(target, prop);
 		instance.transform.SetParent(propertiesRoot, false);
 	    }
 	}

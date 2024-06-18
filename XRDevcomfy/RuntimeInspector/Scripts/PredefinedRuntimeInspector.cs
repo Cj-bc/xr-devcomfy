@@ -23,7 +23,7 @@ namespace XRDevcomfy.RuntimeInspector
 	{
 	    foreach (var bind in predefinedBindings)
 	    {
-		var instance = factory.Create(bind.Target, bind.PropertyInfo.GetSetMethod(), bind.PropertyInfo.GetGetMethod());
+		var instance = factory.Create(bind.Target, bind.PropertyInfo);
 		instance.transform.SetParent(propertiesRoot, false);
 	    }
 	}

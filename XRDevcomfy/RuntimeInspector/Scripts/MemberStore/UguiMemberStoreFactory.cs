@@ -13,6 +13,7 @@ public class UguiMemberStoreFactory : MemberStoreFactory
     [SerializeField] UguiQuaternionPropertyStore quaternion;
     [SerializeField] UguiBoolPropertyStore boolean;
     [SerializeField] UguiAnyTypePropertyStore anyType;
+    [SerializeField] UguiActionMethodStore action;
 
     public override Transform CreateVector3(object targetObj, MethodInfo setter, MethodInfo getter)
     {
@@ -41,4 +42,12 @@ public class UguiMemberStoreFactory : MemberStoreFactory
         anyType.Bind(setter, getter, targetObj);
         return go.transform;
     }
+
+    public override Transform CreateAction(object targetObj, MethodInfo method)
+    {
+        var go = UnityEngine.Object.Instantiate(action);
+        go.Bind(targetObj, method);
+        return go.transform;
+    }
+
 }

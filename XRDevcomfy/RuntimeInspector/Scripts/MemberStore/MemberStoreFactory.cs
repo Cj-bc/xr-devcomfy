@@ -17,9 +17,13 @@ public abstract class MemberStoreFactory : ScriptableObject
     /// <summary>Create PropertyStore for any type.</summary>
     public abstract Transform CreateAny(object targetObj, MethodInfo setter, MethodInfo getter);
 
+    /// <summary>Create MemberStore for Action</summary>
+    public abstract Transform CreateAction(object targetObj, MethodInfo method);
+
     public Transform Create(object targetObj, MemberInfo info) => info switch
     {
 	PropertyInfo i => CreateProperty(targetObj, i.GetSetMethod(), i.GetGetMethod()),
+	MethodInfo i => CreateMethod(targetObj, i),
 	null => throw new NullReferenceException(),
 	_ => throw new NotImplementedException(),
     };
@@ -33,4 +37,9 @@ public abstract class MemberStoreFactory : ScriptableObject
         _ => CreateAny(targetObj, setter, getter),
     };
 
+    public Transform CreateMethod(object targetObj, MethodInfo method) => method.ReturnType switch
+    {
+	var t when t == typeof(void) => CreateAction(targetObj, method),
+	_ => throw new NotImplementedException(),
+    };
 }

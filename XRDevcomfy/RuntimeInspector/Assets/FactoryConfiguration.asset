@@ -16,3 +16,4 @@ MonoBehaviour:
   quaternion: {fileID: 2536062522720464868, guid: aaf866259dae0df4abbc1dfd7d781eac, type: 3}
   boolean: {fileID: 2442054901126884240, guid: 8cb4287f6919be0458fa407697e3c6f2, type: 3}
   anyType: {fileID: 7802426249440887960, guid: 746252ae11ce89741a4d3cacdb31f98d, type: 3}
+  action: {fileID: 7083026409468217799, guid: 0552fe171b2c4a84fa2746ce357aa684, type: 3}

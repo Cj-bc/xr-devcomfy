@@ -16,7 +16,7 @@ public class PropertyModificationCommandTest
         var prop = transform.GetType().GetProperty("position");
         var newVal = Vector3.one * 100;
         var oldVal = (Vector3)prop.GetValue(transform);
-        var cmd = new PropertyModificationCommand<Vector3>(transform, prop, oldVal, newVal);
+        var cmd = new PropertyModificationCommand(transform, prop, oldVal, newVal);
 
         Assert.That((Vector3)transform.position, Is.EqualTo(oldVal));
         cmd.Execute();
@@ -30,7 +30,7 @@ public class PropertyModificationCommandTest
         var prop = transform.GetType().GetProperty("position");
         var newVal = Vector3.one * 100;
         var oldVal = (Vector3)prop.GetValue(transform);
-        var cmd = new PropertyModificationCommand<Vector3>(transform, prop, oldVal, newVal);
+        var cmd = new PropertyModificationCommand(transform, prop, oldVal, newVal);
 
         Assert.That((Vector3)transform.position, Is.EqualTo(oldVal));
         cmd.Execute();

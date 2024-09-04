@@ -18,9 +18,9 @@ public class PropertyModificationCommandTest
         var oldVal = (Vector3)prop.GetValue(transform);
         var cmd = new PropertyModificationCommand(transform, prop, oldVal, newVal);
 
-        Assert.That((Vector3)transform.position, Is.EqualTo(oldVal));
+        Assert.That(transform.position, Is.EqualTo(oldVal));
         cmd.Execute();
-        Assert.That((Vector3)transform.position, Is.EqualTo(newVal));
+        Assert.That(transform.position, Is.EqualTo(newVal));
     }
 
     [Test]
@@ -32,11 +32,11 @@ public class PropertyModificationCommandTest
         var oldVal = (Vector3)prop.GetValue(transform);
         var cmd = new PropertyModificationCommand(transform, prop, oldVal, newVal);
 
-        Assert.That((Vector3)transform.position, Is.EqualTo(oldVal));
+        Assert.That(transform.position, Is.EqualTo(oldVal));
         cmd.Execute();
-        Assert.That((Vector3)transform.position, Is.EqualTo(newVal));
+        Assert.That(transform.position, Is.EqualTo(newVal));
         cmd.Undo();
-        Assert.That((Vector3)transform.position, Is.EqualTo(oldVal));
+        Assert.That(transform.position, Is.EqualTo(oldVal));
     }
 
 }

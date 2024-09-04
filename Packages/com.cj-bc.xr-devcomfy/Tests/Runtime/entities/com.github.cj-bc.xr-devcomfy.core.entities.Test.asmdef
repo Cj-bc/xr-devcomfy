@@ -3,12 +3,13 @@
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner",
         "com.github.cj-bc.xr-devcomfy.core",
         "com.github.cj-bc.xr-devcomfy.core.adapters",
         "com.github.cj-bc.xr-devcomfy.core.entities"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

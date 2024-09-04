@@ -1,0 +1,24 @@
+{
+    "name": "com.github.cj-bc.xr-devcomfy.core.entities.Test",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "com.github.cj-bc.xr-devcomfy.core",
+        "com.github.cj-bc.xr-devcomfy.core.adapters",
+        "com.github.cj-bc.xr-devcomfy.core.entities"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -6,12 +6,12 @@ namespace XRDevcomfy
     /// Represents one modification procedure. It will be used for recording value diffs
     public struct PropertyModificationCommand<T>
     {
-        public MonoBehaviour target { get; private set; }
+        public Component target { get; private set; }
         public PropertyInfo property { get; private set; }
         public T oldValue { get; private set; }
         public T newValue { get; private set; }
 
-        public PropertyModificationCommand(MonoBehaviour target, PropertyInfo prop, T oldVal, T newVal)
+        public PropertyModificationCommand(Component target, PropertyInfo prop, T oldVal, T newVal)
         {
             this.target = target;
             this.property = prop;

@@ -1,0 +1,4 @@
+public interface IHmdTrackerAdapter
+{
+    public Transform GetHmdTransform();
+}

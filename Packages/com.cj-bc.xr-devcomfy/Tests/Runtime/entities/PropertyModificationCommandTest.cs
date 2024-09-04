@@ -24,7 +24,7 @@ public class PropertyModificationCommandTest
     }
 
     [Test]
-    public void ExecuteCommandRedo()
+    public void ExecuteCommandUndo()
     {
         var transform = new GameObject().GetComponent<Transform>();
         var prop = transform.GetType().GetProperty("position");

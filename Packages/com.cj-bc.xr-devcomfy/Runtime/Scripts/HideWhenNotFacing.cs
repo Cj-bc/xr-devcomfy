@@ -19,6 +19,7 @@ public class HideWhenNotFacing : MonoBehaviour
 
     void Update()
     {
+	/// As Cavnas isn't face to the camera when it is readable, I need to flip it.
 	if (Vector3.Dot(gameObject.transform.forward, oppornent.forward) > threshold)
 	{
 	    ShouldOpened();

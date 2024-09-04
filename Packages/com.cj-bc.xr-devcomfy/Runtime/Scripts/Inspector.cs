@@ -24,12 +24,16 @@ public class Inspector : MonoBehaviour
     [SerializeField]
     private GameObject? target;
 
+    private Canvas canvas;
+
     public List<Component> ComponentsToInspect;
     private List<Type> targetComponentTypes;
 
     void Start()
     {
+	canvas = GetComponentInParent<Canvas>();
 	targetComponentTypes = ComponentsToInspect.Select((c) => c.GetType()).ToList();
+	Inspect(target);
     }
 
     public void Inspect(GameObject obj)
@@ -45,16 +49,19 @@ public class Inspector : MonoBehaviour
 
 	foreach (Type targetType in targetComponentTypes)
 	{
+	    Debug.Log($"Inspector: Testing against {targetType}");
 	    var actualComponent = obj.GetComponent(targetType);
 	    if (actualComponent is null)
 	    {
 		continue;
 	    }
+	    Debug.Log($"Inspector: actualComponentType: {actualComponent.GetType()}");
 	    var node = Instantiate(componentFactory).CreateComponent(actualComponent);
 	    node.SetParent(componentsRoot, false);
 	}
-	LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
+	LayoutRebuilder.MarkLayoutForRebuild(canvas.transform as RectTransform);
     }
+
     private void updateData()
     {
 	nameField.SetText(target.name);

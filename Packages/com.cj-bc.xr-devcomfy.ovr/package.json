@@ -1,0 +1,24 @@
+{
+  "name": "com.github.cj-bc.xr-devcomfy.ovr",
+  "version": "0.0.0",
+  "displayName": "XR Devcomfy -- OVR Support",
+  "description": "Meta XR Core SDK support for xr-dvecomfy",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/Cj-bc/xr-devcomfy",
+  "license": "MPL-2.0",
+  "licensesUrl": "https://www.mozilla.org/en-US/MPL/2.0/",
+  "dependencies": {
+    "com.meta.xr.sdk.interaction.ovr": "63.0.0",
+    "com.github.cj-bc.xr-devcomfy": "0.0.0"
+ },
+ "keywords": [
+    "vr",
+    "xr",
+    "utility"
+  ],
+  "author": {
+    "name": "Cj-bc",
+    "email": "cj.bc-sd@outlook.jp",
+    "url": "https://github.com/Cj-bc"
+  }
+}

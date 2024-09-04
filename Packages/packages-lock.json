@@ -1,5 +1,51 @@
 {
   "dependencies": {
+    "com.github.cj-bc.xr-devcomfy": {
+      "version": "file:com.cj-bc.xr-devcomfy",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6",
+        "com.unity.ext.nunit": "1.0.6",
+        "com.unity.ugui": "1.0.0"
+      }
+    },
+    "com.github.cj-bc.xr-devcomfy.ovr": {
+      "version": "file:com.cj-bc.xr-devcomfy.ovr",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.meta.xr.sdk.interaction.ovr": "63.0.0",
+        "com.github.cj-bc.xr-devcomfy": "0.0.0"
+      }
+    },
+    "com.meta.xr.sdk.core": {
+      "version": "63.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.meta.xr.sdk.interaction": {
+      "version": "63.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.textmeshpro": "3.0.6"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.meta.xr.sdk.interaction.ovr": {
+      "version": "63.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.meta.xr.sdk.core": "63.0.0",
+        "com.meta.xr.sdk.interaction": "63.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.burst": {
       "version": "1.8.12",
       "depth": 1,

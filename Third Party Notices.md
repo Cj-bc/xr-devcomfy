@@ -18,3 +18,10 @@ Component name: Meta XR SDK Interaction
 License Type: "Meta Platform Technologies SDK License"
 
 [Meta Platform Technologies SDK License](https://developer.oculus.com/licenses/oculussdk)
+
+Component name: RuntimeInspector
+
+License Type: "MIT License"
+
+[yasirkula/UnityRuntimeInspector License](https://github.com/yasirkula/UnityRuntimeInspector/blob/master/LICENSE.txt)
+

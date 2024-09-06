@@ -200,6 +200,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.yasirkula.runtimeinspector": {
+      "version": "https://github.com/yasirkula/UnityRuntimeInspector.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b0980bb9a554d8d429cec645593b5c207c49163a"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

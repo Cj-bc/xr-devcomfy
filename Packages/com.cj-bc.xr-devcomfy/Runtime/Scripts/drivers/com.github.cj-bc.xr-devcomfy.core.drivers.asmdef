@@ -1,0 +1,20 @@
+{
+    "name": "com.github.cj-bc.xr-devcomfy.core.drivers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:978f6a92c17387c448f3065946793c92",
+        "GUID:b6c00f9fc594eec42b25fd566b998a90",
+        "GUID:39176d6675f666f4ca7757e83240783a",
+        "GUID:5350fc5f2dee5894c94015dbe725cf05",
+        "GUID:74a3d10a392361241bd84ae6432a8ad4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

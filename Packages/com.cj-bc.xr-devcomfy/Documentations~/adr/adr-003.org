@@ -1,0 +1,145 @@
+* ADR 003: in-gameでの操作用の Gizmo の操作の分割
+** 背景
+
+Transformを操作するControllerを作成したが、それを操作するためのギズモ
+へのアクセスをどう提供するかで悩んでいる。ギズモはComponentとして作成
+されており、副作用を持つ上ユーザーの入力によって操作される。そのため、
+「実装の詳細」とみなす。
+ここで、
+
++ GizmoはComponentであり、「実装の詳細」とみなせるためdriver層以降の外側に置きたいと考えた
++ Controllerのいる "adapter" 層以下ではアクセスが出来ない
++ DIで持ち込んでインスタンスを作成することは出来るが、それの操作の仕方がない
++ 操作が出来ないということはテストが不可能になる。テストを重視した設
+  計をする必要があるわけではないが、このようなケースでは設計の問題点
+  と捉えられると考えた。
+    
+** 決定
+ギズモの実装は「詳細」であるとみなし、 "drivers" に含めることとする。
+移動操作は他ライブラリによって行われ、「変更点」自体ではないため無関心
+とし、最小の関心対象である移動対象の指定及びその移動の結果のみを取得し
+て利用する。その2点に関してUseCaseを作成し、それを "drivers" が実装す
+ることとする。
+
+例として Transform の操作用のコードを以下に示す。
+
+#+begin_src csharp
+  // "/usecases"
+  public interface IGetTransformGizmoResultUseCase
+  {
+      public (TransformValue before, TransformValue after)? GetTransformGizmoResult();
+  }
+
+  public interface ISetTransformGizmoUseCase
+  {
+      public void SetTransformGizmoTo(Transform transform);
+  }
+
+  // "/drivers"
+  public class TransformGizmo : MonoBehaviour, IGetTransformGizmoResultUseCase, ISetTransformGizmoUseCase
+  {
+      private TransformValue? before = null;
+      private Transform target;
+
+      public (TransformValue before, TransformValue after)? GetTransformGizmoResult()
+      {
+	  if (before is null)
+	  {
+	      return null;
+	  }
+
+	  var _b = before;
+	  before = null;
+	  return (_b, TransformValue.FromTransform(target));
+      }
+
+      public void SetTransformGizmoTo(Transform _transform)
+      {
+	  before = TransformValue.FromTransform(_transform);
+	  target = _transform;
+      }
+  }
+
+
+  // "adapters"
+  public class TransformGizmoController : IGameObjectSelectionController
+  {
+      private IGetTransformGizmoResultUseCase getGizmoResult;
+      private ISetTransformGizmoUseCase setGizmo;
+
+      public TransformGizmoController(IGetTransformGizmoResultUseCase _getGizmoResult,
+				      ISetTransformGizmoUseCase _setGizmo)
+      {
+	  getGizmoResult = _getGizmoResult;
+	  setGizmo = _setGizmo;
+      }
+
+      public void SelectGameObject(GameObject obj)
+      {
+	  if (SelectedGameObject is not null
+	      && setGizmoActive.GetTransformGizmoResult() is (TransformValue before, TransformValue after))
+	  {
+	      // Commit modification
+	  }
+
+	  SelectedGameObject = obj;
+	  gizmo.SetTransformGizmoTo(SelectedGameObject.transform);
+      }
+  }
+#+end_src
+
+** 代替案
+*** 1. GizmoをEntityにする
+文字通り。GizmoコンポーネントをEntityとして定義すればどこからでもアクセス出来るようになる。
+
+**** メリット
++ まぁ簡単な解決方法ではある
+
+**** デメリット
++ 副作用を持ち、外部への依存をしているためテストしづらい
++ ワイルドカードとして使用しており、割と考えるのを放棄した決定なように感じる
+  
+*** 2. GizmoRepositoryのようなものを作り、GetGizmoUseCaseを通して取得する
+
+「外部の詳細を取得したい」のは「DBから値を取り出したい」と似たようなも
+のでは？と考えたので、同様に Repository を作成することで対応する。
+
+#+begin_src csharp
+  public interface ITransformGizmo
+  {
+      public void AnchorTo(Transform go);
+      public (TransformValue before, TransformValue after) UnAnchor();
+  }
+
+  public interface ITransformGizmoRepository
+  {
+      public ITransformGizmo GetTransformGizmo();
+  }
+
+  public class ITransformGizmoController : IGameObjectSelectionController
+  {
+      private ITransformGizmoRepository repo;
+      public void SelectGameObject(GameObject obj)
+      {
+	  var gizmo = repo.GetTransformGizmo();
+	  if (SelectedGameObject is not null
+	      && gizmo.UnAnchor() is (TransformValue before, TransformValue after))
+	  {
+	  }
+
+	  SelectedGameObject = obj;
+	  gizmo.AnchorTo(SelectedGameObject.transform);
+      }
+  }
+#+end_src
+
+**** メリット
++ パターンに沿って実装が出来る
++ 詳細は外に置いておける
+**** デメリット
++ ITransformGizmo 的なインターフェースの定義にすごい悩む
++ Gizmoが増えるたびRepositoryを増やすのは良いのか悪いのか悩ましい
++ Controllerが結構ロジックつめつめで肥大化している
+  + adapter層は「変換器」であるので、それを越えたロジックはUseCaseに委託するべきでは？という疑問がある
++ テストの際、 ITransformGizmo の実態を別途操作する必要があり、 ITransformGizmoRepository とくっついたテストをするしかない
+

@@ -1,0 +1,39 @@
+#+STATUS: active
+* ADR 002: 変更操作の保持方法
+** 背景
+プロパティの変更操作について、 Undo/Redo や外部送信等の需要があるため
+履歴を保存する必要がある。
+
+** 決定
+対象のコンポーネント・ ~PropertyInfo~ ・ 元の値と変更後の値を持つ構造
+体を作成して保管する。コレクションで管理出来るようにするために、元の値
+と変更後の値は ~object~ で保存して必要に応じて逐次キャストする。
+
+#+begin_src csharp
+  public struct PropertyModification
+  {
+      public MonoBehaviour target { get; private init; }
+      public PropertyInfo property { get; private init; }
+      public object oldValue { get; private init; }
+      public object newValue { get; private init; }
+  }
+#+end_src
+
+** 代替案
+*** プロパティ名をStringに落とし込んで持つ
+#+begin_src csharp
+  public struct PropertyModification<T>
+  {
+      public MonoBehaviour target { get; private init; }
+      public string propertyName { get; private init; }
+      public T oldValue { get; private init; }
+      public T newValue { get; private init; }
+  }
+#+end_src
+
+**** メリット
++ 外部送信時に再度シリアライズを必要としない
++ リフレクションを使用しないので問題がない...?
+**** デメリット
++ 値を実際に変更しようとするなら、毎回 ~target.GetType()~ から ~PropertyInfo~ を取り出す必要がある
++ どうせ取り出す必要があるのであれば、それをキャッシュした方が良いのではないか？

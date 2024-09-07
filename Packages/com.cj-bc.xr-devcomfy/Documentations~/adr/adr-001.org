@@ -1,0 +1,15 @@
+#+STATUS: active
+* ADR 001: Clean Architecture
+** 背景
+色々な要求があり、かつ「XR Interaction ToolkitとMeta XR Core SDK両対応
+させたい」等の要件があることから複雑化することが予想された。そこで、疎
+結合にしやすく拡張性を持ちやすい設計をする必要があった。
+
+** 決定
+基礎からの設計について、 Clearn Architecture を使用することとする。
+
+** 影響
+*** 良い影響
++ "Frameworks and Drivers" で想定されている通り XR Interaction Toolkit/Meta XR Core SDkの対応が楽
+*** 悪い影響
++ コードが若干複雑にはなる...?

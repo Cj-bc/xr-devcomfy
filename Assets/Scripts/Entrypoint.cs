@@ -10,7 +10,8 @@ public class EntryPoint : MonoBehaviour
     void Start()
     {
 	var modificationRepo = new InMemoryModificationRepository();
-        var controller = new TransformGizmoController(transformGizmoPrefab, transformGizmoPrefab, modificationRepo);
+	var committer = new CommitModificationUseCaseImpl(modificationRepo);
+        var controller = new TransformGizmoController(transformGizmoPrefab, transformGizmoPrefab, modificationRepo, committer);
         var selector = new RuntimeHierarchySelector(hier, controller);
     }
 }

@@ -26,7 +26,7 @@ namespace XRDevcomfy
 	    modifRepo = _modifRepo;
 	}
 
-        public void SelectGameObject(GameObject obj)
+        public void SelectGameObject(GameObject? obj)
 	{
 	    if (SelectedGameObject is not null
 		&& getGizmoResult.GetTransformGizmoResult() is (TransformValue before, TransformValue after))
@@ -48,8 +48,12 @@ namespace XRDevcomfy
 
 	    }
 
-	    SelectedGameObject = obj;
-	    setGizmo.SetTransformGizmoTo(SelectedGameObject.transform);
+	    SelectedGameObject = null;
+	    if (obj is GameObject go)
+	    {
+		SelectedGameObject = go;
+		setGizmo.SetTransformGizmoTo(SelectedGameObject.transform);
+	    }
 	}
     }
 }

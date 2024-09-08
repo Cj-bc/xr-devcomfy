@@ -1,10 +1,7 @@
 {
     "name": "com.github.cj-bc.xr-devcomfy.core.adapters",
     "rootNamespace": "",
-    "references": [
-        "GUID:978f6a92c17387c448f3065946793c92",
-        "GUID:b6c00f9fc594eec42b25fd566b998a90"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

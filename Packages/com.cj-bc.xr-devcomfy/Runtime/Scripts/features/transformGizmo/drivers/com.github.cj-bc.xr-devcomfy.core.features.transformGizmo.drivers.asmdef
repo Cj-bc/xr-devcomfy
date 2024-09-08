@@ -1,0 +1,20 @@
+{
+    "name": "com.github.cj-bc.xr-devcomfy.core.features.transformGizmo.drivers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ee7afe013eff6484eb731bd820650af0",
+        "GUID:60126aab6e5631943b8675522587cbfd",
+        "GUID:74a3d10a392361241bd84ae6432a8ad4",
+        "GUID:4e9eb228a456f764c98734cd590c43b7",
+        "GUID:5350fc5f2dee5894c94015dbe725cf05"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

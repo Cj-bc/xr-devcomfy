@@ -1,9 +1,9 @@
 {
-    "name": "com.github.cj-bc.xr-devcomfy.core.usecases",
+    "name": "com.github.cj-bc.xr-devcomfy.core.features.modifications.drivers",
     "rootNamespace": "",
     "references": [
-        "GUID:978f6a92c17387c448f3065946793c92",
-        "GUID:74a3d10a392361241bd84ae6432a8ad4"
+        "GUID:4e9eb228a456f764c98734cd590c43b7",
+        "GUID:978f6a92c17387c448f3065946793c92"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

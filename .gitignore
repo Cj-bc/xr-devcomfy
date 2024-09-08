@@ -1,0 +1,12 @@
+*~
+!Documentations~
+
+Temp
+Library
+Logs
+UserSettings
+
+*.sln
+# csproj contains absolute path, which I don't want to be included.
+# see: https://home-programming.com/2023/01/16/unity_adb_csproj_gitno/
+*.csproj

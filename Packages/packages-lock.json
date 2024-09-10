@@ -16,7 +16,9 @@
       "source": "embedded",
       "dependencies": {
         "com.meta.xr.sdk.interaction.ovr": "63.0.0",
-        "com.github.cj-bc.xr-devcomfy": "0.0.0"
+        "com.github.cj-bc.xr-devcomfy": "0.0.0",
+        "com.unity.xr.management": "4.5.0",
+        "com.unity.xr.oculus": "4.2.0"
       }
     },
     "com.meta.xr.sdk.core": {
@@ -152,6 +154,37 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.unity.xr.legacyinputhelpers": {
+      "version": "2.1.10",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.management": {
+      "version": "4.5.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0",
+        "com.unity.modules.subsystems": "1.0.0",
+        "com.unity.xr.legacyinputhelpers": "2.1.7"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.oculus": {
+      "version": "4.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.4.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.yasirkula.runtimeinspector": {
       "version": "https://github.com/yasirkula/UnityRuntimeInspector.git",

@@ -9,7 +9,9 @@
   "licensesUrl": "https://www.mozilla.org/en-US/MPL/2.0/",
   "dependencies": {
     "com.meta.xr.sdk.interaction.ovr": "63.0.0",
-    "com.github.cj-bc.xr-devcomfy": "0.0.0"
+    "com.github.cj-bc.xr-devcomfy": "0.0.0",
+    "com.unity.xr.management": "4.5.0",
+    "com.unity.xr.oculus": "4.2.0"
  },
  "keywords": [
     "vr",

@@ -10,7 +10,8 @@
   "dependencies": {
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.ext.nunit": "1.0.6",
-    "com.unity.ugui": "1.0.0"
+    "com.unity.ugui": "1.0.0",
+    "com.unity.inputsystem": "1.7.0"
  },
  "keywords": [
     "vr",

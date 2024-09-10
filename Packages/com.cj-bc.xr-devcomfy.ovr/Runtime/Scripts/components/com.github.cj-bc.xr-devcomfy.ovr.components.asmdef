@@ -1,0 +1,17 @@
+{
+    "name": "com.github.cj-bc.xr-devcomfy.ovr.components",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2a230cb87a1d3ba4a98bdc0ddae76e6c",
+        "GUID:bcfd9245b4cb5a742b7ada87973abb13"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

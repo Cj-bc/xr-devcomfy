@@ -7,13 +7,15 @@ namespace XRDevcomfy.OVR
     /// Move TransformGizmo axis by using Interactables
     public class TransformGizmoAxis : MonoBehaviour
     {
+        [Serializable]
+        public enum Axis { X, Y, Z }
+
         [SerializeField] ColliderRayInteractable interactable;
+        [SerializeField] Axis axis;
         private Func<Ray>? getInteractorRay;
         private Transform interactorTransform;
 
-        private Plane xAxisPlane;
-        private Plane yAxisPlane;
-        private Plane zAxisPlane;
+        private Plane axisPlane;
 
         void Start()
         {
@@ -30,19 +32,61 @@ namespace XRDevcomfy.OVR
         }
         void Update()
         {
+            transform.position = CalculatePosition(transform);
+        }
+
+        Plane getAxisPlane(Transform _transform, Axis _axis)
+        {
+            var plane = new Plane();
+            switch (_axis)
+            {
+                case Axis.X:
+                    plane.SetNormalAndPosition(_transform.forward, _transform.position);
+                    break;
+                case Axis.Y:
+                    plane.SetNormalAndPosition(_transform.forward, _transform.position);
+                    break;
+                case Axis.Z:
+                    plane.SetNormalAndPosition(_transform.right, _transform.position);
+                    break;
+            }
+            return plane;
+        }
+
+        Vector3 getProjectionVector(Transform _transform, Axis _axis) => (_axis) switch
+        {
+            Axis.X => _transform.right,
+            Axis.Y => _transform.up,
+            Axis.Z => _transform.forward,
+        };
+
+        /// <summary>Calculates world-space coordinate moved by
+        /// interactable interaction.</summary>
+        ///
+        /// <param name="gizmoRoot">Root of Gizmo. It is considered to
+        /// be transformed by result of this method.</param>
+        ///
+        /// <returns>Vector3 that represents world-space position that
+        /// gizmo should be located. Returns <param name="gizmoRoot"
+        /// />.position if it isn't affected by interaction.
+        /// </returns>
+        ///
+        /// TODO: Use Hit position for smoother result
+        public Vector3 CalculatePosition(Transform gizmoRoot)
+        {
             if (getInteractorRay is null)
             {
-                return;
+                return gizmoRoot.position;
             }
 
             Ray ray = getInteractorRay();
-            xAxisPlane.SetNormalAndPosition(transform.forward, transform.position);
-            if (xAxisPlane.Raycast(ray, out float enter))
+            axisPlane = getAxisPlane(gizmoRoot, axis);
+            if (axisPlane.Raycast(ray, out float enter))
             {
-                Vector3 diff = Vector3.Project(ray.GetPoint(enter) - transform.position, transform.right);
-                transform.position += diff;
+                Vector3 diff = Vector3.Project(ray.GetPoint(enter) - gizmoRoot.position, getProjectionVector(gizmoRoot, axis));
+                return gizmoRoot.position + diff;
             }
-
+            return gizmoRoot.position;
         }
     }
 

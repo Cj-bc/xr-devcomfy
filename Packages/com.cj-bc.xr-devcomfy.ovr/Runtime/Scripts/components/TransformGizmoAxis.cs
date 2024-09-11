@@ -15,8 +15,6 @@ namespace XRDevcomfy.OVR
         private Func<Ray>? getInteractorRay;
         private Transform interactorTransform;
 
-        private Plane axisPlane;
-
         void Start()
         {
             interactable.WhenSelectingInteractorAdded.Action += (interactor) =>
@@ -79,14 +77,9 @@ namespace XRDevcomfy.OVR
                 return gizmoRoot.position;
             }
 
-            Ray ray = getInteractorRay();
-            axisPlane = getAxisPlane(gizmoRoot, axis);
-            if (axisPlane.Raycast(ray, out float enter))
-            {
-                Vector3 diff = Vector3.Project(ray.GetPoint(enter) - gizmoRoot.position, getProjectionVector(gizmoRoot, axis));
-                return gizmoRoot.position + diff;
-            }
-            return gizmoRoot.position;
+            return ProjectRayInteresctionOntoAxis(getAxisPlane(gizmoRoot, axis)
+                                                  , getProjectionVector(gizmoRoot, axis)
+                                                  , getInteractorRay()) ?? gizmoRoot.position;
         }
 
         /// Rayを指定した軸へ投影し、そのワールド座標を返す

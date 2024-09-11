@@ -18,6 +18,8 @@ namespace XRDevcomfy.OVR
         /// <summary>End of Raycast. Useful to place some indicator</summary>
         public Vector3 End { get; set; }
         public Ray Ray { get; protected set; }
+        private RaycastHit _interactableHit;
+        public Vector3 InteractableHitPosition { get => _interactableHit.point; }
 
         // Without Selector, no selection event will occur.
         //
@@ -48,7 +50,7 @@ namespace XRDevcomfy.OVR
         protected override ColliderRayInteractable ComputeCandidate()
         {
             var closestCandidate = ColliderRayInteractable.Registry.List(this)
-                .Where(interactable => interactable.Raycast(Ray, out _, maxDistance))
+                .Where(interactable => interactable.Raycast(Ray, out _interactableHit, maxDistance))
                 .Aggregate<ColliderRayInteractable, ColliderRayInteractable>(null, (a, b) => (a, b) switch
                                                                              {
                                                                                  (null, _) => b,
@@ -57,7 +59,7 @@ namespace XRDevcomfy.OVR
                                                                              });
 
             // RayInteractorの実装では「最大限まで遠い場所」にしていた
-            End = closestCandidate?.Origin.position ?? Origin + Forward * maxDistance;
+            End = closestCandidate is null ? Origin + Forward * maxDistance : InteractableHitPosition;
             return closestCandidate;
         }
     }

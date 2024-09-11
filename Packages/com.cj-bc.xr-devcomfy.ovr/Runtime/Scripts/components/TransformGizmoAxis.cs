@@ -88,6 +88,19 @@ namespace XRDevcomfy.OVR
             }
             return gizmoRoot.position;
         }
+
+        /// Rayを指定した軸へ投影し、そのワールド座標を返す
+        /// <param name="axis">Axis to project against. In World space</param>
+        /// <returns>Vector3 value that represents world-coordinate of result intersection.</returns>
+        public static Vector3? ProjectRayInteresctionOntoAxis(Plane plane, Vector3 axis, Ray ray)
+        {
+            if (plane.Raycast(ray, out float enter))
+            {
+                Vector3 intersectionInGlobal = ray.GetPoint(enter);
+                return Vector3.Project(intersectionInGlobal, axis);
+            }
+            return null;
+        }
     }
 
 }
